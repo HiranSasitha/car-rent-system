@@ -23,6 +23,7 @@ public class LoginController {
         try {
             String hasPassword = passwordEncoder.encode(user.getPassword());
             user.setPassword(hasPassword);
+            user.setRole("ROLE_"+user.getRole());
 
             User saveUser = userRepository.save(user);
             if(saveUser.getId()>0){
